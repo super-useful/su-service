@@ -1,0 +1,30 @@
+services:
+  -
+    name: thegrand
+    host: "http://localhost:3030"
+    endpoints:
+      old:
+        path: "/apis/stable/consumption/:granularity"
+        method: "GET"
+        type: "application/json"
+      duke:
+        path: "/apis/stable/consumption/:granularity"
+        method: "GET"
+        type: "application/json"
+      ofyork:
+        path: "/apis/stable/consumption/:granularity"
+        method: "GET"
+        type: "application/json"
+  -
+    name: oldmcdonald
+    host: "http://localhost:3030"
+    endpoints:
+      hada:
+        path: "/apis/stable/consumption/:granularity"
+        method: "GET"
+        type: "application/json"
+      cow:
+        path: "/apis/stable/consumption/:granularity"
+        method: "GET"
+        type: "application/json"
+
