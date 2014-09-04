@@ -1,0 +1,54 @@
+{
+  "name": "su-service",
+  "version": "0.0.1",
+  "description": "super useful wrapper to batch load services",
+  "dependencies": {
+    "JSONStream": "x",
+    "co": "x",
+    "co-mongo": "x",
+    "config": "x",
+    "config-file": "x",
+    "event-stream": "x",
+    "js-yaml": "x",
+    "moment-timezone": "x",
+    "require-all": "x",
+    "super-func": "x",
+    "super-iter": "x",
+    "through": "x",
+    "thunkify": "x",
+    "useful-copy": "x",
+    "useful-string": "x",
+    "useful-value": "x",
+    "yaml": "x"
+  },
+  "devDependencies": {
+    "assert": "*",
+    "should": "*",
+    "mocha": "*",
+    "chai": "*",
+    "sinon": "*",
+    "sinon-chai": "*",
+    "rewire": "2.0.x"
+  },
+  "main": "index.js",
+  "author": {
+    "Simon Jefford": "si@ibrokethat.com",
+    "Christos Constandinou": "constantology@gmail.com"
+  },
+  "license":[ {
+    "type": "MIT",
+    "url": "https://raw.github.com/super-useful/su-apiserver/master/LICENSE"
+  }],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:super-useful/su-service.git"
+  },
+  "scripts": {
+    "test": "node --harmony --harmony_typeof ./node_modules/mocha/bin/_mocha --colors --recursive --ui tdd --reporter spec ./test --NODE_ENV=test",
+    "test-jenkins": "./node_modules/.bin/mocha --colors --harmony --recursive -R xunit ./test/**/**/*.js > test-reports.xml"
+  },
+  "engines": {
+    "node": "0.11.x"
+  }
+
+}
