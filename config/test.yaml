@@ -28,3 +28,21 @@ services:
         method: "GET"
         type: "application/json"
 
+batch:
+  -
+    name: busta
+    services:
+      thegrand:
+        - ofyork
+      oldmcdonald:
+        - cow
+  -
+    name: rhymes
+    services:
+      thegrand:
+        - old
+        - duke
+      oldmcdonald:
+        - hada
+
+
