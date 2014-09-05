@@ -1,48 +1,43 @@
-services:
+hosts:
   -
-    name: thegrand
-    host: "http://localhost:3030"
-    endpoints:
-      old:
-        path: "/apis/stable/consumption/:granularity"
-        method: "GET"
-        type: "application/json"
-      duke:
-        path: "/apis/stable/consumption/:granularity"
-        method: "GET"
-        type: "application/json"
-      ofyork:
-        path: "/apis/stable/consumption/:granularity"
-        method: "GET"
-        type: "application/json"
-  -
-    name: oldmcdonald
-    host: "http://localhost:3030"
-    endpoints:
-      hada:
-        path: "/apis/stable/consumption/:granularity"
-        method: "GET"
-        type: "application/json"
-      cow:
-        path: "/apis/stable/consumption/:granularity"
-        method: "GET"
-        type: "application/json"
+    hostname: test
+    uri: "http://localhost:3031/apis"
+    format: "su-apiserver"
 
 batch:
-  -
-    name: busta
-    services:
-      thegrand:
-        - ofyork
-      oldmcdonald:
-        - cow
-  -
-    name: rhymes
-    services:
-      thegrand:
-        - old
-        - duke
-      oldmcdonald:
-        - hada
+  busta:
+    thegrand:
+      - ofyork-get
+    oldmcdonald:
+      - cow-get
+  rhymes:
+    thegrand:
+      - old-get
+      - duke-get
+    oldmcdonald:
+      - hada-get
 
 
+debug: true
+app:
+  port: 3031
+  session:
+    host: "localhost"
+    port: 6379
+    cleanup_time: 7200000
+    cleanup_interval: 3600000
+  global_request_timeout: 400000
+  global_session_timeout: 3600000
+log:
+  customlevels:
+    ERROR: 1
+    INFO: 1
+    LOG: 1
+    WARN: 1
+  path: "logs"
+apis:
+  base: "/apis"
+  releases:
+    stable: "v0.1.0"
+    beta: "v1.0.0"
+  health: "/service/healthcheck"

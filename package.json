@@ -5,7 +5,8 @@
   "dependencies": {
     "JSONStream": "x",
     "co": "x",
-    "co-mongo": "x",
+    "co-parallel": "x",
+    "co-request": "x",
     "config": "x",
     "config-file": "x",
     "event-stream": "x",
@@ -28,7 +29,8 @@
     "chai": "*",
     "sinon": "*",
     "sinon-chai": "*",
-    "rewire": "2.0.x"
+    "rewire": "2.0.x",
+    "su-apiserver" : "git+ssh://git@github.com:super-useful/su-apiserver.git"
   },
   "main": "index.js",
   "author": {
