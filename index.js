@@ -11,6 +11,9 @@ var parallel = require('co-parallel');
 var iter = require('super-iter');
 var map = iter.map;
 
+var hostProxy = require('./lib/proxy/host');
+
+//  maybe move to require-all()
 var serviceTypes = {
   "su-apiserver": require('./lib/services/suApiServer')
 };
@@ -27,7 +30,8 @@ module.exports = function * index (hosts, batch) {
   var reqs = map(hosts, loadService);
 
   var services = yield parallel(reqs, reqs.length);
-  console.log(JSON.stringify(services, null, 2));
-  return services;
 
+  return {
+    services: hostProxy(services)
+  };
 }

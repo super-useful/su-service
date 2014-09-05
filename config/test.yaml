@@ -5,17 +5,18 @@ hosts:
     format: "su-apiserver"
 
 batch:
-  busta:
-    thegrand:
-      - ofyork-get
-    oldmcdonald:
-      - cow-get
-  rhymes:
-    thegrand:
-      - old-get
-      - duke-get
-    oldmcdonald:
-      - hada-get
+  all:
+    test:
+      - "bus-get"
+      - "train-get"
+      - "train-delay"
+  get_only:
+    test:
+      - "bus-get"
+      - "train-get"
+  delay_only:
+    test:
+      - "train-only"
 
 
 debug: true
