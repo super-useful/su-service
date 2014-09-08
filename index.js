@@ -15,6 +15,7 @@ var map = iter.map;
 var reduce = iter.reduce;
 
 var hostProxy = require('./lib/proxy/host');
+var batchProxy = require('./lib/proxy/batch');
 
 //  maybe move to require-all()
 var serviceTypes = {
