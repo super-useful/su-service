@@ -8,8 +8,11 @@
 
 */
 var parallel = require('co-parallel');
+
+var copy = require('useful-copy');
 var iter = require('super-iter');
 var map = iter.map;
+var reduce = iter.reduce;
 
 var hostProxy = require('./lib/proxy/host');
 
@@ -25,6 +28,15 @@ function * loadService (host) {
 }
 
 
+function formatServices (services) {
+
+  return reduce(services, function (acc, service) {
+    return copy(acc, service);
+  }, {});
+
+}
+
+
 module.exports = function * index (hosts, batch) {
 
   var reqs = map(hosts, loadService);
@@ -32,6 +44,6 @@ module.exports = function * index (hosts, batch) {
   var services = yield parallel(reqs, reqs.length);
 
   return {
-    services: hostProxy(services)
+    services: hostProxy(formatServices(services))
   };
 }

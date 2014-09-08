@@ -1,9 +1,12 @@
 hosts:
   -
-    hostname: test
+    hostname: rancid
     uri: "http://localhost:3031/apis"
     format: "su-apiserver"
-
+  -
+    hostname: meat
+    uri: "http://localhost:3031/apis"
+    format: "su-apiserver"
 batch:
   all:
     test:
