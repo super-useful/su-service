@@ -1,11 +1,13 @@
 hosts:
   -
-    hostname: rancid
-    uri: "http://localhost:3031/apis"
+    hostname: victoria
+    host: "http://localhost:3031"
+    descriptor_uri: "http://localhost:3031/apis"
     format: "su-apiserver"
   -
-    hostname: meat
-    uri: "http://localhost:3031/apis"
+    hostname: northern
+    host: "http://localhost:3031"
+    descriptor_uri: "http://localhost:3031/apis"
     format: "su-apiserver"
 batch:
   all:
@@ -22,7 +24,7 @@ batch:
       - "train-only"
 
 
-debug: true
+debug: false
 app:
   port: 3031
   session:

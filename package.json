@@ -11,6 +11,7 @@
     "config-file": "x",
     "event-stream": "x",
     "js-yaml": "x",
+    "koa-router": "x",
     "moment-timezone": "x",
     "require-all": "x",
     "super-func": "x",
