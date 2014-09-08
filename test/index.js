@@ -81,14 +81,13 @@ describe(modulePath, function() {
 
   describe('su-apiserver service success', function () {
 
-    it('should return 500 internal server', function (done) {
+    it('should return 200 success', function (done) {
 
       co(function * () {
 
         var res = yield underTest.services.victoria.stable['train-get']({platform: 3});
 
         expect(res.statusCode).to.be.equal(200);
-        console.log(res.body)
         done();
 
       })();

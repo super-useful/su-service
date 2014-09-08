@@ -37,13 +37,15 @@ function formatServices (services) {
 }
 
 
-module.exports = function * index (hosts, batch) {
+module.exports = function * index (hostsConfig, batchConfig) {
 
-  var reqs = map(hosts, loadService);
+  var reqs = map(hostsConfig, loadService);
 
   var services = yield parallel(reqs, reqs.length);
+  var serviceProxies = hostProxy(formatServices(services));
 
   return {
-    services: hostProxy(formatServices(services))
+    services: serviceProxies,
+    batch: hostBatch(batchConfig, serviceProxies)
   };
 }
