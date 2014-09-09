@@ -115,7 +115,7 @@ describe(modulePath, function() {
 
   });
 
-  describe.only('su-apiserver batch success', function () {
+  describe('su-apiserver batch success', function () {
 
     it('should return all service responses attached to the correct key', function (done) {
 
