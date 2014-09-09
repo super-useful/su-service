@@ -95,6 +95,56 @@ describe(modulePath, function() {
 
   });
 
+  describe('su-apiserver batch initialsation', function () {
+
+    it('should throw an error on initialisation if the config specifies unknown hosts', function (done) {
+
+      co(function * () {
+
+        CONF.batch.all.does_not_exist = {};
+
+        var err;
+
+        try {
+
+          underTest = yield require(path.resolve(modulePath))(CONF.hosts, CONF.batch);
+        }
+        catch (e) {
+          err = e;
+        }
+
+        expect(err).to.be.instanceOf(Error);
+
+        done();
+
+      })();
+    });
+
+    it('should throw an error on initialisation if the config specifies unknown apis', function (done) {
+
+      co(function * () {
+
+        CONF.batch.all.victoria.does_not_exist = {};
+
+        var err;
+
+        try {
+
+          underTest = yield require(path.resolve(modulePath))(CONF.hosts, CONF.batch);
+        }
+        catch (e) {
+          err = e;
+        }
+
+        expect(err).to.be.instanceOf(Error);
+
+        done();
+
+      })();
+    });
+
+  });
+
   describe('su-apiserver batch', function () {
 
     it('should create the batch services defined in the config', function (done) {
@@ -114,6 +164,7 @@ describe(modulePath, function() {
     });
 
   });
+
 
   describe('su-apiserver batch success', function () {
 
