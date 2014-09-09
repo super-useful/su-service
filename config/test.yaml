@@ -11,17 +11,17 @@ hosts:
     format: "su-apiserver"
 batch:
   all:
-    test:
+    victoria:
       - "bus-get"
       - "train-get"
       - "train-delay"
   get_only:
-    test:
+    victoria:
       - "bus-get"
       - "train-get"
   delay_only:
-    test:
-      - "train-only"
+    northern:
+      - "train-delay"
 
 
 debug: false

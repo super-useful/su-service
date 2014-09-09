@@ -14,8 +14,9 @@ var iter = require('super-iter');
 var map = iter.map;
 var reduce = iter.reduce;
 
-var hostProxy = require('./lib/proxy/host');
-var batchProxy = require('./lib/proxy/batch');
+var createServices = require('./lib/createServices');
+var createBatches = require('./lib/createBatches');
+
 
 //  maybe move to require-all()
 var serviceTypes = {
@@ -34,7 +35,6 @@ function formatServices (services) {
   return reduce(services, function (acc, service) {
     return copy(acc, service);
   }, {});
-
 }
 
 
@@ -43,10 +43,10 @@ module.exports = function * index (hostsConfig, batchConfig) {
   var reqs = map(hostsConfig, loadService);
 
   var services = yield parallel(reqs, reqs.length);
-  var serviceProxies = hostProxy(formatServices(services));
+  services = createServices(formatServices(services));
 
   return {
-    services: serviceProxies,
-    batch: hostBatch(batchConfig, serviceProxies)
+    services: services,
+    batch: createBatches(batchConfig, services)
   };
 }

@@ -95,6 +95,85 @@ describe(modulePath, function() {
 
   });
 
+  describe('su-apiserver batch', function () {
+
+    it('should create the batch services defined in the config', function (done) {
+
+      co(function * () {
+
+        expect(underTest.batch.all.stable).to.be.a('function');
+        expect(underTest.batch.get_only.stable).to.be.a('function');
+        expect(underTest.batch.delay_only.stable).to.be.a('function');
+        expect(underTest.batch.all['v0.1.0']).to.be.a('function');
+        expect(underTest.batch.get_only['v0.1.0']).to.be.a('function');
+        expect(underTest.batch.delay_only['v0.1.0']).to.be.a('function');
+
+        done();
+
+      })();
+    });
+
+  });
+
+  describe.only('su-apiserver batch success', function () {
+
+    it('should return all service responses attached to the correct key', function (done) {
+
+      co(function * () {
+
+        var res = yield underTest.batch.all.stable({station: 'brixton', platform: 3});
+
+        expect(res['bus-get']).to.be.deep.equal({
+          data: {
+            onTime: true,
+            platform: 3,
+            station: 'brixton',
+            message: 'platformChange'
+          },
+          status: {httpStatus: 200, success: true},
+          links: {},
+          release: 'v0.1.0',
+          version: 'v0.1.0',
+          params: {station: 'brixton', platform: 3},
+          query: {}
+        });
+
+        expect(res['train-get']).to.be.deep.equal({
+          data: {
+            onTime: true,
+            platform: 3,
+            station: 'brixton',
+            message: 'platformChange'
+          },
+          status: {httpStatus: 200, success: true},
+          links: {},
+          release: 'v0.1.0',
+          version: 'v0.1.0',
+          params: {station: 'brixton', platform: 3},
+          query: {}
+        });
+
+        expect(res['train-delay']).to.be.deep.equal({
+          data: {
+            onTime: true
+          },
+          status: {httpStatus: 200, success: true},
+          links: {},
+          release: 'v0.1.0',
+          version: 'v0.1.0',
+          params: {},
+          query: {}
+        });
+
+        done();
+
+      })();
+    });
+
+  });
+
+
+
 
 
 });
