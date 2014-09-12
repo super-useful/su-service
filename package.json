@@ -15,7 +15,7 @@
     "moment-timezone": "x",
     "require-all": "x",
     "super-func": "x",
-    "super-iter": "x",
+    "super-iter": "git+ssh://git@github.com:ibrokethat/iter.git#v0.1.0",
     "through": "x",
     "thunkify": "x",
     "useful-copy": "x",
