@@ -93,6 +93,18 @@ describe(modulePath, function() {
       })();
     });
 
+    it('should pass query params correctly', function (done) {
+
+      co(function * () {
+
+        var res = yield underTest.services.victoria.stable['train-get']({platform: 3}, {notDefined: 'woop', steam: 'please'});
+        expect(res.body.query.steam).to.be.equal('please');
+        expect(res.body.query.notDefined).to.be.undefined;
+        done();
+
+      })();
+    });
+
   });
 
   describe('su-apiserver batch initialsation', function () {

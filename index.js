@@ -17,7 +17,6 @@ var reduce = iter.reduce;
 var createServices = require('./lib/createServices');
 var createBatches = require('./lib/createBatches');
 
-
 //  maybe move to require-all()
 var serviceTypes = {
   "su-apiserver": require('./lib/services/suApiServer')

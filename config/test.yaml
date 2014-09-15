@@ -1,13 +1,15 @@
 hosts:
   -
     hostname: victoria
-    host: "http://localhost:3031"
-    descriptor_uri: "http://localhost:3031/apis"
+    protocol: "http:"
+    host: "localhost:3031"
+    descriptor_uri: "/apis"
     format: "su-apiserver"
   -
     hostname: northern
-    host: "http://localhost:3031"
-    descriptor_uri: "http://localhost:3031/apis"
+    protocol: "http:"
+    host: "localhost:3031"
+    descriptor_uri: "/apis"
     format: "su-apiserver"
 batch:
   all:
