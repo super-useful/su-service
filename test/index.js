@@ -105,6 +105,18 @@ describe(modulePath, function() {
       })();
     });
 
+    it('should pass headers correctly', function (done) {
+
+      co(function * () {
+
+        var res = yield underTest.services.victoria.stable['train-get']({platform: 3}, null, {'X-CSRF-Token': '0123456789'});
+        expect(res.request.headers['X-CSRF-Token']).to.be.equal('0123456789');
+        done();
+
+      })();
+    });
+
+
   });
 
   describe('su-apiserver batch initialsation', function () {
@@ -236,6 +248,7 @@ describe(modulePath, function() {
 
       })();
     });
+
 
   });
 
