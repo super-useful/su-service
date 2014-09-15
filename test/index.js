@@ -184,7 +184,7 @@ describe(modulePath, function() {
 
       co(function * () {
 
-        var res = yield underTest.batch.all.stable({station: 'brixton', platform: 3});
+        var res = yield underTest.batch.all.stable({station: 'brixton', platform: 3}, {notDefined: 'woop', steam: 'please'});
 
         expect(res['bus-get']).to.be.deep.equal({
           data: {
@@ -213,7 +213,9 @@ describe(modulePath, function() {
           release: 'v0.1.0',
           version: 'v0.1.0',
           params: {station: 'brixton', platform: 3},
-          query: {}
+          query: {
+            steam: 'please'
+          }
         });
 
         expect(res['train-delay']).to.be.deep.equal({
@@ -225,7 +227,9 @@ describe(modulePath, function() {
           release: 'v0.1.0',
           version: 'v0.1.0',
           params: {},
-          query: {}
+          query: {
+            steam: 'please'
+          }
         });
 
         done();
@@ -234,9 +238,6 @@ describe(modulePath, function() {
     });
 
   });
-
-
-
 
 
 });
