@@ -7,6 +7,7 @@
   yield batch.name[version]({});
 
 */
+var path = require('path');
 var parallel = require('co-parallel');
 
 var copy = require('useful-copy');
