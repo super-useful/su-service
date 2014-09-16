@@ -17,11 +17,7 @@ var reduce = iter.reduce;
 var createServices = require('./lib/createServices');
 var createBatches = require('./lib/createBatches');
 
-//  maybe move to require-all()
-var serviceTypes = {
-  "su-apiserver": require('./lib/services/suApiServer')
-};
-
+var serviceTypes = require('require-all')(path.join(__dirname, '/lib/services/'));
 
 /*
   load a service factory in the co-parallel style
