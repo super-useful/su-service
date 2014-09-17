@@ -207,7 +207,7 @@ describe(modulePath, function() {
           },
           status: {httpStatus: 200, success: true},
           links: {},
-          release: 'v0.1.0',
+          release: 'stable',
           version: 'v0.1.0',
           params: {station: 'brixton', platform: 3},
           query: {}
@@ -222,7 +222,7 @@ describe(modulePath, function() {
           },
           status: {httpStatus: 200, success: true},
           links: {},
-          release: 'v0.1.0',
+          release: 'stable',
           version: 'v0.1.0',
           params: {station: 'brixton', platform: 3},
           query: {
@@ -236,7 +236,7 @@ describe(modulePath, function() {
           },
           status: {httpStatus: 200, success: true},
           links: {},
-          release: 'v0.1.0',
+          release: 'stable',
           version: 'v0.1.0',
           params: {},
           query: {
