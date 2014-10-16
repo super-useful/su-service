@@ -14,16 +14,16 @@ hosts:
 batch:
   all:
     victoria:
-      - "bus-get"
-      - "train-get"
-      - "train-delay"
+      bus: "bus-get"
+      train: "train-get"
+      train_delay: "train-delay"
   get_only:
     victoria:
-      - "bus-get"
-      - "train-get"
+      bus: "bus-get"
+      train: "train-get"
   delay_only:
     northern:
-      - "train-delay"
+      train_delay: "train-delay"
 
 
 debug: false

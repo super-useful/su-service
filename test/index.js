@@ -198,7 +198,7 @@ describe(modulePath, function() {
 
         var res = yield underTest.batch.all.stable({station: 'brixton', platform: 3}, {notDefined: 'woop', steam: 'please'});
 
-        expect(res['bus-get']).to.be.deep.equal({
+        expect(res['bus']).to.be.deep.equal({
           data: {
             onTime: true,
             platform: 3,
@@ -213,7 +213,7 @@ describe(modulePath, function() {
           query: {}
         });
 
-        expect(res['train-get']).to.be.deep.equal({
+        expect(res['train']).to.be.deep.equal({
           data: {
             onTime: true,
             platform: 3,
@@ -230,7 +230,7 @@ describe(modulePath, function() {
           }
         });
 
-        expect(res['train-delay']).to.be.deep.equal({
+        expect(res['train_delay']).to.be.deep.equal({
           data: {
             onTime: true
           },
