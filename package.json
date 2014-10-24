@@ -12,7 +12,7 @@
     "event-stream": "x",
     "js-yaml": "x",
     "koa-router": "x",
-    "moment-timezone": "x",
+    "moment-timezone": "0.2.x",
     "require-all": "x",
     "super-func": "x",
     "super-iter": "git+ssh://git@github.com:ibrokethat/iter.git#v0.1.0",
