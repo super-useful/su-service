@@ -1,0 +1,21 @@
+debug: false
+app:
+  port: 3031
+  session:
+    cleanup_time: 7200000
+    cleanup_interval: 3600000
+  global_request_timeout: 400000
+  global_session_timeout: 3600000
+log:
+  customlevels:
+    ERROR: 1
+    INFO: 1
+    LOG: 1
+    WARN: 1
+  path: "logs"
+apis:
+  base: "/apis"
+  releases:
+    stable: "v0.1.0"
+    beta: "v1.0.0"
+  health: "/service/healthcheck"

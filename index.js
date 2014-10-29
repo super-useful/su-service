@@ -2,7 +2,7 @@
 
   entry point to create services and batch services
 
-  yield services.hostname[version].apiname({})
+  yield services.name[version].apiname({})
 
   yield batch.name[version]({});
 

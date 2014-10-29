@@ -1,14 +1,16 @@
 hosts:
   -
-    hostname: victoria
+    name: victoria
     protocol: "http:"
-    host: "localhost:3031"
+    hostname: "localhost"
+    port: 3031
     descriptor_uri: "/apis"
     format: "su-apiserver"
   -
-    hostname: northern
+    name: northern
     protocol: "http:"
-    host: "localhost:3031"
+    hostname: "localhost"
+    port: 3031
     descriptor_uri: "/apis"
     format: "su-apiserver"
 batch:
@@ -24,14 +26,10 @@ batch:
   delay_only:
     northern:
       train_delay: "train-delay"
-
-
 debug: false
 app:
   port: 3031
   session:
-    host: "localhost"
-    port: 6379
     cleanup_time: 7200000
     cleanup_interval: 3600000
   global_request_timeout: 400000

@@ -18,8 +18,11 @@ var underTest;
 chai.use(sinonChai);
 
 describe(modulePath, function() {
+ it('should not reference a directory from another repo that may not exist on another persons machine', function (done) {
+    expect(true).to.be.false;
+ });
 
-
+return;
   before(co(function * () {
 
     server = yield suApiserver(versions);
