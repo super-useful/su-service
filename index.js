@@ -24,8 +24,15 @@ var serviceTypes = require('require-all')(path.join(__dirname, '/lib/services/')
   load a service factory in the co-parallel style
 */
 function * loadService (host) {
-
-  return yield serviceTypes[host.format](host);
+  if (host.format in serviceTypes) {
+    return yield serviceTypes[host.format](host);
+  }
+  else if (Array.isArray(host.endpoints)) {
+    return yield serviceTypes.default(host);
+  }
+  else {
+    throw new Error('su-service#loadService no services found to load.')
+  }
 }
 
 
@@ -49,8 +56,10 @@ module.exports = function * index (hostsConfig, batchConfig) {
   var services = yield parallel(reqs, reqs.length);
   services = createServices(formatServices(services));
 
-  return {
+  var api = {
     services: services,
     batch: createBatches(batchConfig, services)
   };
-}
+
+  return api;
+};
