@@ -58,7 +58,7 @@ module.exports = function * index (hostsConfig, batchConfig) {
 
   var api = {
     services: services,
-    batch: createBatches(batchConfig, services)
+    batch: batchConfig ? createBatches(batchConfig, services) : null
   };
 
   return api;
