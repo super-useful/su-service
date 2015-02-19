@@ -14,6 +14,7 @@
     "koa-router": "x",
     "moment-timezone": "0.2.x",
     "require-all": "x",
+    "path-to-regexp": "x",
     "super-func": "x",
     "super-iter": "git+ssh://git@github.com:ibrokethat/iter.git#v0.1.0",
     "through": "x",
