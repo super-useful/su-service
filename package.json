@@ -47,7 +47,7 @@
     "url": "git@github.com:super-useful/su-service.git"
   },
   "scripts": {
-    "test": "export NODE_ENV='test' && node --harmony --harmony_typeof ./node_modules/mocha/bin/_mocha --colors --recursive --ui tdd --reporter spec ./test",
+    "test": "export NODE_ENV='test' && node --harmony ./node_modules/mocha/bin/_mocha --colors --recursive --ui tdd --reporter spec ./test",
     "test-jenkins": "./node_modules/.bin/mocha --colors --harmony --recursive -R xunit ./test/**/**/*.js > test-reports.xml"
   },
   "engines": {
